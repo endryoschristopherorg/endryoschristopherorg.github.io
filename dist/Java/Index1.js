@@ -1,4 +1,4 @@
-
+alert('ffd')
 var firebaseConfig = {
   apiKey: "AIzaSyAqnA-19T5WQQn3M8sJ_-Up-ZrlSpsDO70",
     authDomain: "rocha-bank.firebaseapp.com",
