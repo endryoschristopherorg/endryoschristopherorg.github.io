@@ -14,11 +14,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Conectar - Rocha Bank</title>
     <!-- CSS files -->
-    <link href="dist/css/tabler.min.css" rel="stylesheet"/>
-    <link href="dist/css/tabler-flags.min.css" rel="stylesheet"/>
-    <link href="dist/css/tabler-payments.min.css" rel="stylesheet"/>
-    <link href="dist/css/tabler-vendors.min.css" rel="stylesheet"/>
-    <link href="dist/css/demo.min.css" rel="stylesheet"/>
+    <link href="./dist/css/tabler.min.css" rel="stylesheet"/>
+    <link href="./dist/css/tabler-flags.min.css" rel="stylesheet"/>
+    <link href="./dist/css/tabler-payments.min.css" rel="stylesheet"/>
+    <link href="./dist/css/tabler-vendors.min.css" rel="stylesheet"/>
+    <link href="./dist/css/demo.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
   </head>
   <body  class=" border-top-wide border-primary d-flex flex-column">
@@ -82,8 +82,8 @@
     </div>
     <!-- Libs JS -->
     <!-- Rocha Bank Core -->
-    <script src="dist/js/tabler1.js" defer></script>
-    <script src="dist/js/demo.miin.js" defer></script>
+    <script src="./dist/js/tabler1.js" defer></script>
+    <script src="./dist/js/demo.miin.js" defer></script>
 
     
    <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -95,7 +95,261 @@
    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 
    <!-- Our script must be loaded after firebase references -->
-   <script src="dist/Java/Index1.js"></script>
+   <script src="index1.js"></script>
+   <!--=======================  Set Data Firebase  ======================-->
+
+<script>
+
+
+var firebaseConfig = {
+  apiKey: "AIzaSyAqnA-19T5WQQn3M8sJ_-Up-ZrlSpsDO70",
+    authDomain: "rocha-bank.firebaseapp.com",
+    databaseURL: "https://rocha-bank-default-rtdb.firebaseio.com/",
+    projectId: "rocha-bank",
+    storageBucket: "rocha-bank.appspot.com",
+    messagingSenderId: "203742887644",
+    appId: "1:203742887644:web:6333509b03285f6ecffe19"
+};
+// =============================== Iniciar Firebase ======================================
+
+firebase.initializeApp(firebaseConfig);
+
+// =============================== Iniciar Variavens Da Firebase ================================
+const auth = firebase.auth()
+const database = firebase.database()
+
+   //=======================  Obter Get  ==============================
+
+   function get() {
+  
+
+  var username = localStorage.getItem("Nome2");
+
+
+                                      var Info89 = database.ref('Alunos/' + username + "/Info")
+                                      Info89.on('value', function(snapshot) {
+                                        var data = snapshot.val()
+                                          localStorage.setItem("Contador", data.Email);
+                                          localStorage.setItem("Nome5", data.Nome5);
+                                          localStorage.setItem("Dia_Cadastro", data.Dia_Cadastro);
+                                          localStorage.setItem("Idade", data.Idade);
+                                          localStorage.setItem("Sexo", data.Sexo);
+                                          localStorage.setItem("Serie", data.Serie);
+                                          localStorage.setItem("Description", data.Description);
+                                          localStorage.setItem("Vez", data.Vez);
+                                         
+
+                                  
+                                      })
+                                      var Info891 = database.ref('Alunos/' + username + "/Info/Senha")
+                                      Info891.on('value', function(snapshot) {
+                                        var data = snapshot.val()
+                                      localStorage.setItem("Senha", data.Senha);
+                                      })
+
+                                    
+                                      var Vez2234 = database.ref('Alunos/' + username + "/Info/Outros")
+                                      Vez2234.on('value', function(snapshot) {
+                                        var data = snapshot.val()
+                                      localStorage.setItem("Vez22", data.Vez);
+                                      })
+                                      
+                                    var user_ref = database.ref('Alunos/' + username + "/Dados/Web/Ganhos")
+                                    user_ref.on('value', function(snapshot) {
+                                      var data = snapshot.val()
+                                        localStorage.setItem("Ganhos", data.Ganhos);
+                                        localStorage.setItem("Progress1", data.Progress);
+
+
+                                    })
+                                  var Leal = database.ref('Alunos/' + username + "/Dados/Web/Leal")
+                                  Leal.on('value', function(snapshot) {
+                                    var data = snapshot.val()
+                                      localStorage.setItem("Leal", data.Leal);
+                                      localStorage.setItem("Progress2", data.Progress);
+                                     
+                                  })
+                                  var Compra = database.ref('Alunos/' + username + "/Dados/Web/Compras")
+                              Compra.on('value', function(snapshot) {
+                                var data = snapshot.val()
+                                  localStorage.setItem("Compras", data.Compra);
+                                  localStorage.setItem("Progress3", data.Progress);
+                              })
+                            var user_ref = database.ref('Alunos/' + username + "/Dados/Web/Vendas")
+                            user_ref.on('value', function(snapshot) {
+                              var data = snapshot.val()
+                                localStorage.setItem("Vendas", data.Vendas);
+                                localStorage.setItem("Progress4", data.Progress);
+                            })
+                         var user_ref = database.ref('Alunos/' + username + "/Admin/Modo")
+                         user_ref.on('value', function(snapshot) {
+                           var data = snapshot.val()
+                           localStorage.setItem("Modo", data.Modo);
+                         })
+                      var Caso = database.ref('Alunos/' + username + "/Admin/Caso")
+                       Caso.on('value', function(snapshot) {
+                         var data = snapshot.val()
+                         localStorage.setItem("Caso2", data.Caso);
+                        localStorage.setItem("Message", data.Message);
+                         
+                      })
+                      var Arma = database.ref('Alunos/' + username + "/Outros/Armaz")
+                       Arma.on('value', function(snapshot) {
+                         var data = snapshot.val()
+                        
+                        localStorage.setItem("Sistema", data.Sistema);
+                        localStorage.setItem("Backup", data.Backup);
+                        localStorage.setItem("Shared", data.Shared);
+                         localStorage.setItem("AutoDriver", data.AutoDrive);
+                        localStorage.setItem("Livre4445", data.Livre);
+                      
+                      })
+                
+                  
+  var TL = database.ref('Alunos/' + username + "/Outros/Send_Leal")
+  TL.on('value', function(snapshot) {
+    var data = snapshot.val()
+    
+    localStorage.setItem("Server_TL", data.Server);
+    localStorage.setItem("Total_TL", data.Total);
+    localStorage.setItem("Social_TL", data.Social);
+    localStorage.setItem("Diarial_TL", data.Dirial);
+    localStorage.setItem("Project_TL", data.Project);
+    localStorage.setItem("Provas_TL", data.Provas);
+    localStorage.setItem("Vendas_TL", data.Vendas);
+   
+  })
+  
+
+  if (localStorage.getItem("Caso2") == "SUS") {
+    alert(localStorage.getItem("Message"))
+    window.location.href = "Conectar.html";
+  }
+
+  
+ if (localStorage.getItem("Nome444") == localStorage.getItem("Nome5") && localStorage.getItem("Gmail444") == localStorage.getItem("Contador") && localStorage.getItem("Metodo") == "Recu") {
+  
+  var database_ref = database.ref()
+ alert('Senha Redefinida')
+  var Atividades = {
+   
+    Senha : localStorage.getItem("Senha2")
+   
+  } 
+ 
+   database_ref.child('Alunos/' + username + "/Info/Senha").set(Atividades)
+
+   setTimeout(function() {
+    window.location.href = "Conectar.html";
+ }, 1000);
+
+ alert('ssns')
+ 
+
+
+ } else {
+ if (localStorage.getItem("Metodo") == "Recu") {
+  alert('Opss, Alguma Informação Digitada Está Incorreta')
+ }
+  if (localStorage.getItem("Metodo") == "Vezes") {
+    var database_ref = database.ref()
+    
+      var Vez1 = {
+       
+        Vez : '1'
+       
+      } 
+     
+       database_ref.child('Alunos/' + username + "/Info/Outros/Vez").set(Vez1)
+    
+
+ }
+   // alert(localStorage.getItem("Nome444"))
+    // alert(localStorage.getItem("Nome5"))
+    
+  
+  if (localStorage.getItem("Metodo") == "Login") {
+  setTimeout(function() {
+    var data = new Date()
+    const horas = data.getHours();
+    const minutos = data.getMinutes();
+
+  if (localStorage.getItem("Nome1") == localStorage.getItem("Nome5")) {
+
+    if (localStorage.getItem("Senha1") == localStorage.getItem("Senha")) {
+
+   
+
+    localStorage.setItem("Last_Login", horas);
+
+
+    window.location.href = "Inicio.html";
+    
+    } else { 
+      if (localStorage.getItem("Block") == minutos) {
+        alert('Acesso Negado')
+      } else {
+     
+        window.location.href1 = "Conectar.html";
+
+      
+      alert('Senha Incorreta, Tente Novamente')
+      document.getElementById("login-btn").style = 'display:auto';
+
+     
+    }
+    }
+  } else {
+    alert('Nome Incorreto, Tente Novamente')
+    document.getElementById("login-btn").style = 'display:auto';
+
+
+  }
+ 
+  
+ }, 2000);
+ }
+
+ }
+ 
+
+ if (localStorage.getItem("Metodo") == "Vez") {
+  
+  var database_ref = database.ref()
+  var Vez1 = {
+   
+    Vez : "true"
+   
+  
+  }
+   database_ref.child('Alunos/' + username + "/Info/Outros").set(Vez1)
+
+
+  }
+
+
+  
+ if (localStorage.getItem("Metodo") == "Error") {
+  
+  var database_ref = database.ref()
+  var Error = {
+   
+    Caso : "SUS",
+    Message : "Sua Conta Foi Desativada Devido A Um Poblema Com Seus Dados!"
+ 
+  }
+   database_ref.child('Alunos/' + username + "/Admin/Caso").set(Error)
+
+
+  }
+
+
+
+}
+
+
+
+   </script>
  
    <script>
 
